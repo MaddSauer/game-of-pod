@@ -29,14 +29,14 @@ spec:
     limitts:
             cpu: '50m'
             memory: '100Mi'
-        volumeMount:
+        volumeMounts:
           - name: config
             mountPath: '/usr/share/nginx/html/data'
           - name: images
             mountPath: '/usr/share/nginx/html/uploads'
-      volume:
+      volumes:
       - name: config
-        emptyDir
+        emptyDir:
       - name: images
-        emptyDir
+        emptyDir:
 status: {}

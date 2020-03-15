@@ -24,7 +24,7 @@ spec:
         image: kodekloud/irondb:2.0
         name: iron-db
         resources: {}
-        volumeMount:
+        volumeMounts:
           - name: db
             mountPath: '/var/lib/mysql'
         env:
@@ -36,7 +36,7 @@ spec:
             value: lychee
           - name: MYSQL_PASSWORD
             value: lychee
-      volume:
+      volumes:
       - name: db
-        emptyDir
+        emptyDir:
 status: {}
