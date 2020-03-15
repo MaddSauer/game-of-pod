@@ -12,7 +12,7 @@ spec:
     protocol: TCP
     targetPort: 3600
   selector:
-    app: iron-db-service
+    db: mariadb
   type: ClusterIP
 status:
   loadBalancer: {}
