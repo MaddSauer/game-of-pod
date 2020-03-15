@@ -26,7 +26,7 @@ spec:
           requests:
             cpu: '50m'
             memory: '100Mi'
-    limitts:
+    limits:
             cpu: '50m'
             memory: '100Mi'
         volumeMounts:
