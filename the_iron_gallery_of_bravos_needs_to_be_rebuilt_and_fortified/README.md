@@ -44,3 +44,6 @@ Pod Label: 'db=mariadb'
 
 kubectl run deployment iron-gallery --generator=deployment/apps.v1  --image='kodekloud/irongallery:2.0' --dry-run -o yaml
 
+kubectl create svc clusterip iron-db-service --tcp=3600 --dry-run -o yaml > iron-db-service.yaml
+
+
