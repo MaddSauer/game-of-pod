@@ -18,14 +18,15 @@ spec:
       labels:
         app: drupal
     spec:
-      initContainer:
+      initContainers:
       - name: init-sites-volume
         image: drupal:8.6
-        persistentVolumeClaim: drupal-pvc
-        mountPath: /data
+        volumeMounts:
+        - mountPath: /data
+          name: drupal-vol
         command: 
-          - "/bin/bash"
-          - "-c"
+          - '/bin/bash'
+          - '-c'
         args:
           - 'cp -r /var/www/html/sites/ /data/; chown www-data:www-data /data/ -R'
         resources: {}
