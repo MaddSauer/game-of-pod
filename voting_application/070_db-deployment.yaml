@@ -1,21 +1,30 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    run: worker
-  name: worker
+    run: db-deployment
+  name: db-deployment
 spec:
-  containers:
-  - image: postgres:9.4
-    name: worker
-    resources: {}
-  volumes:
-  - mountPath: /var/lib/postgresql/data
-    name: db-data
-  volumes:
-  - name: db-data
-    emptyDir: 
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
+  replicas: 1
+  selector:
+    matchLabels:
+      run: db-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: db-deployment
+    spec:
+      containers:
+      - image: postgres:9.4
+        name: db-deployment
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: db-data
+      volumes:
+        - name: db-data
+          emptyDir:
 status: {}

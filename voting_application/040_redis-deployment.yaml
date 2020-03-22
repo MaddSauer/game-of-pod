@@ -1,21 +1,30 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
     run: redis-deployment
   name: redis-deployment
 spec:
-  containers:
-  - image: redis:alpine
-    name: redis-deployment
-    volumeMounts:
-    - mountPath: /data
-      name: redis-data
-    resources: {}
-  volumes:
-  - name: redis-data
-    emptyDir:
-  dnsPolicy: ClusterFirst
-  restartPolicy: Always
+  replicas: 1
+  selector:
+    matchLabels:
+      run: redis-deployment
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: redis-deployment
+    spec:
+      containers:
+      - image: redis:alpine
+        name: redis-deployment
+        resources: {}
+        volumeMounts:
+        - mountPath: /data
+          name: redis-data
+      volumes:
+        - name: redis-data
+          emptyDir:
 status: {}
