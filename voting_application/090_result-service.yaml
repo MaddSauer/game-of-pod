@@ -3,7 +3,7 @@ kind: Service
 metadata:
   labels:
     run: result-deployments
-  name: result
+  name: result-service
 spec:
   ports:
   - name: 5001-80
