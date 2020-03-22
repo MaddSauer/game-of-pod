@@ -3,8 +3,8 @@ kind: Service
 metadata:
   creationTimestamp: null
   labels:
-    app: vote
-  name: vote
+    app: result
+  name: result
 spec:
   ports:
   - name: 5001-80
