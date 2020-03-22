@@ -6,7 +6,7 @@ metadata:
   name: redis
 spec:
   ports:
-  - name: 6379
+  - name: '6379'
     port: 6379
     protocol: TCP
     targetPort: 6379

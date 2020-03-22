@@ -2,21 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   labels:
-    run: vote-deployment
-  name: vote-deployment
+    run: result-deployment
+  name: result-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      run: vote-deployment
+      run: result-deployment
   strategy: {}
   template:
     metadata:
       labels:
-        run: vote-deployment
+        run: result-deployment
     spec:
       containers:
-      - image: kodekloud/examplevotingapp_vote:before
-        name: vote-deployment
+      - image: kodekloud/examplevotingapp_result:before
+        name: result-deployment
         resources: {}
 status: {}
