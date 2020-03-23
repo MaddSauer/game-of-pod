@@ -1,15 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    run: redis-deployment
   name: redis
+  namespace: vote
 spec:
-  ports:
-  - name: '6379'
-    port: 6379
-    protocol: TCP
-    targetPort: 6379
   selector:
     run: redis-deployment
+  ports:
+  - protocol: TCP
+    port: 6379
+    targetPort: 6379
   type: ClusterIP

@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: result-deployment
+  namespace: vote
   labels:
     run: result-deployment
-  name: result-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
       run: result-deployment
-  strategy: {}
   template:
     metadata:
       labels:
@@ -18,5 +18,3 @@ spec:
       containers:
       - image: kodekloud/examplevotingapp_result:before
         name: result-deployment
-        resources: {}
-status: {}

@@ -1,15 +1,15 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: db-deployment
+  namespace: vote
   labels:
     run: db-deployment
-  name: db-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
       run: db-deployment
-  strategy: {}
   template:
     metadata:
       labels:
@@ -18,7 +18,6 @@ spec:
       containers:
       - image: postgres:9.4
         name: db-deployment
-        resources: {}
         volumeMounts:
         - mountPath: /var/lib/postgresql/data
           name: db-data
